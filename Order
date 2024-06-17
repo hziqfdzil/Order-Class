@@ -1,0 +1,114 @@
+import java.io.Serializable;
+
+public class Order implements Serializable {
+    // Order class implementation with Serializable interface
+    private int orderId;
+    private String customerName;
+    private String customerAddress;
+    private String productName;
+    private int quantityOrdered;
+    private double pricePerUnit;
+    private double totalPrice;
+    private String orderStatus;
+
+    // Default constructor
+    public Order() {
+        this.orderId = 0;
+        this.customerName = null;
+        this.customerAddress = null;
+        this.productName = null;
+        this.quantityOrdered = 0;
+        this.pricePerUnit = 0;
+        this.totalPrice = 0;
+        this.orderStatus = null;
+    }
+
+    // Parameterized constructor
+    public Order(int orderId, String customerName, String customerAddress, String productName,
+                 int quantityOrdered, double pricePerUnit, String orderStatus) {
+        this.orderId = orderId;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.productName = productName;
+        this.quantityOrdered = quantityOrdered;
+        this.pricePerUnit = pricePerUnit;
+        this.totalPrice = quantityOrdered * pricePerUnit;
+        this.orderStatus = orderStatus;
+    }
+
+    // Getters and setters
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public int getQuantityOrdered() {
+        return quantityOrdered;
+    }
+
+    public void setQuantityOrdered(int quantityOrdered) {
+        this.quantityOrdered = quantityOrdered;
+        this.totalPrice = quantityOrdered * pricePerUnit;
+    }
+
+    public double getPricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public void setPricePerUnit(double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
+        this.totalPrice = quantityOrdered * pricePerUnit;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "Order ID: " + orderId + "\n" +
+                "Customer Name: " + customerName + "\n" +
+                "Customer Address: " + customerAddress + "\n" +
+                "Product Name: " + productName + "\n" +
+                "Quantity Ordered: " + quantityOrdered + "\n" +
+                "Price Per Unit: " + pricePerUnit + "\n" +
+                "Total Price: " + totalPrice + "\n" +
+                "Order Status: " + orderStatus + "\n";
+    }
+}
